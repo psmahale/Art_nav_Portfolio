@@ -1,10 +1,25 @@
 /* Art Gallery Section Styles */
 .art-section {
   padding: 4rem 2rem 6rem calc(100px + 2.5rem);
-  background: transparent;
+  background: transperent;
   color: #fff;
   min-height: 100vh;
-  margin-top: 0px;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.art-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(100, 108, 255, 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 30%);
+  z-index: -1;
 }
 
 /* Main Container */
@@ -12,16 +27,17 @@
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
 }
 
 /* Header Section */
 .art-header {
   margin-bottom: 3rem;
-  justify-content: center;
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
 }
 
 .header-content h2 {
@@ -31,6 +47,7 @@
   line-height: 1.2;
   position: relative;
   display: inline-block;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .header-content h2 span {
@@ -39,27 +56,31 @@
   background-clip: text;
   color: transparent;
   display: inline;
+  position: relative;
 }
 
 .section-divider {
   width: 100px;
   height: 4px;
   background: linear-gradient(90deg, #646cff, #a855f7);
-  margin: 0 0 1.5rem;
+  margin: 0 auto 1.5rem;
   border-radius: 2px;
-  transition: width 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(100, 108, 255, 0.3);
 }
 
 .header-content:hover .section-divider {
   width: 120px;
+  height: 5px;
 }
 
 .header-content p {
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1.2rem;
   line-height: 1.6;
-  justify-content: center;
-  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Category Filters */
@@ -69,7 +90,6 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 3rem;
-  align-items: center;
 }
 
 .filter-btn {
@@ -80,72 +100,52 @@
   background: rgba(30, 30, 30, 0.8);
   border: none;
   border-radius: 50px;
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.filter-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100, 108, 255, 0.2), transparent);
-  transition: 0.5s;
-}
-
-.filter-btn:hover::before {
-  left: 100%;
+.filter-btn:hover {
+  color: #fff;
+  background: rgba(50, 50, 50, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .filter-btn.active {
-  background: rgba(100, 108, 255, 0.8);
+  background: linear-gradient(135deg, rgba(100, 108, 255, 0.9), rgba(168, 85, 247, 0.9));
   color: #fff;
-  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.filter-btn:hover:not(.active) {
-  color: #fff;
-  background: rgba(50, 50, 50, 0.8);
-}
-
-.filter-btn svg {
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.filter-btn:hover svg {
-  transform: scale(1.1);
+.filter-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(100, 108, 255, 0.5);
 }
 
 /* Art Gallery Grid */
 .art-gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   width: 100%;
 }
 
 /* Art Card Styles */
 .art-card {
-  background: rgba(20, 20, 20, 0.8);
-  border-radius: 12px;
+  background: rgba(20, 20, 30, 0.8);
+  border-radius: 16px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   position: relative;
 }
 
@@ -156,9 +156,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 .art-card:hover::after {
@@ -167,8 +168,8 @@
 
 .art-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(100, 108, 255, 0.15);
-  border-color: rgba(100, 108, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(100, 108, 255, 0.2);
+  border-color: rgba(100, 108, 255, 0.4);
 }
 
 /* Image Container */
@@ -177,10 +178,10 @@
   height: 280px;
   width: 100%;
   overflow: hidden;
+  border-radius: 12px 12px 0 0;
 }
 
 .art-image {
-  
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -188,7 +189,7 @@
 }
 
 .art-card:hover .art-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 /* Commission Badge */
@@ -196,15 +197,16 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  background: rgba(30, 30, 30, 0.9);
+  background: rgba(20, 20, 30, 0.9);
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 500;
   color: #a855f7;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.3);
   z-index: 2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   animation: pulse 2s infinite;
 }
 
@@ -223,11 +225,8 @@
 /* Art Info Section */
 .art-info {
   padding: 1.5rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .art-info h3 {
@@ -235,6 +234,22 @@
   margin-bottom: 0.8rem;
   color: #fff;
   transition: color 0.3s ease;
+  position: relative;
+}
+
+.art-info h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #646cff, #a855f7);
+  transition: width 0.3s ease;
+}
+
+.art-card:hover .art-info h3::after {
+  width: 40px;
 }
 
 .art-card:hover .art-info h3 {
@@ -242,22 +257,22 @@
 }
 
 .art-description {
-  color: #bbb;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   margin-bottom: 1.2rem;
   font-size: 0.95rem;
-  flex-grow: 1;
 }
 
 .art-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1rem;
 }
 
 .art-date {
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
 }
 
@@ -269,30 +284,25 @@
   border-radius: 50px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 .art-card:hover .art-price {
   background: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.2);
 }
 
-/* No Artworks Message */
+/* Loading and Empty States */
 .no-artworks {
   grid-column: 1 / -1;
   text-align: center;
   padding: 4rem 2rem;
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 1.2rem;
-  background: rgba(20, 20, 20, 0.5);
+  background: rgba(20, 20, 30, 0.5);
   border-radius: 12px;
   border: 1px dashed rgba(255, 255, 255, 0.1);
-}
-
-/* Loading State */
-.art-loading {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 2rem;
-  color: #646cff;
+  backdrop-filter: blur(5px);
 }
 
 /* Mobile View Styles */
@@ -301,11 +311,12 @@
 }
 
 .mobile-category-section {
-  margin-bottom: 1rem;
-  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
   overflow: hidden;
-  background: rgba(30, 30, 30, 0.8);
+  background: rgba(20, 20, 30, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .mobile-category-header {
@@ -314,12 +325,12 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  background: rgba(40, 40, 40, 0.8);
-  transition: background 0.3s ease;
+  background: rgba(30, 30, 40, 0.8);
+  transition: all 0.3s ease;
 }
 
 .mobile-category-header:hover {
-  background: rgba(60, 60, 60, 0.8);
+  background: rgba(40, 40, 50, 0.8);
 }
 
 .mobile-category-header h3 {
@@ -331,12 +342,13 @@
 .toggle-icon {
   font-size: 1.2rem;
   color: #a855f7;
+  transition: transform 0.3s ease;
 }
 
 .mobile-category-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-category-content.expanded {
@@ -350,10 +362,10 @@
   padding: 1rem;
 }
 
-/* Responsive Styles */
+/* Responsive Adjustments */
 @media (max-width: 1200px) {
   .art-gallery {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
 
@@ -361,9 +373,17 @@
   .art-section {
     padding: 4rem 2rem 6rem 2rem;
   }
+  
+  .header-content h2 {
+    font-size: 2.4rem;
+  }
 }
 
 @media (max-width: 768px) {
+  .art-section {
+    padding: 3rem 1.5rem;
+  }
+  
   .art-gallery {
     display: none;
   }
@@ -372,221 +392,46 @@
     display: block;
   }
   
+  .header-content h2 {
+    font-size: 2rem;
+  }
+  
+  .art-image-container {
+    height: 220px;
+  }
+  
+  .mobile-art-gallery .art-image-container {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
   .art-section {
-    padding: 2rem 1rem 3rem 1rem;
+    padding: 2rem 1rem;
   }
   
   .header-content h2 {
     font-size: 1.8rem;
   }
   
-  .art-image-container {
-    height: 180px;
+  .header-content p {
+    font-size: 1rem;
   }
   
-  .art-info h3 {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .header-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .header-content p {
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
-
-  .section-divider {
-    width: 80px;
-    height: 3px;
-  }
-
+  
   .art-image-container {
-    height: 160px;
-  }
-
-  .art-info h3 {
-    font-size: 1rem;
-  }
-
-  .art-description {
-    font-size: 0.8rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .art-date,
-  .art-price {
-    font-size: 0.75rem;
-  }
-
-  .filter-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .category-filters {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    scrollbar-width: none;
-  }
-
-  .category-filters::-webkit-scrollbar {
-    display: none;
-  }
-}
-/* Add these mobile-specific styles at the end of your existing CSS */
-
-@media (max-width: 768px) {
-  .mobile-art-view {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .mobile-category-section {
-    background: rgba(20, 20, 20, 0.8);
-    border-radius: 12px;
-    padding: 1rem;
-  }
-
-  .mobile-category-title {
-    color: #fff;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #646cff;
-  }
-
-  .mobile-art-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  /* Adjust card sizes for mobile */
-  .mobile-art-gallery .art-card {
-    margin-bottom: 0;
-  }
-
-  .mobile-art-gallery .art-image-container {
-    height: 160px;
-  }
-
-  .mobile-art-gallery .art-info h3 {
-    font-size: 1rem;
-  }
-
-  .mobile-art-gallery .art-description {
-    font-size: 0.8rem;
-  }
-}
-/* Add these mobile-specific styles at the end of your existing CSS */
-
-@media (max-width: 768px) {
-  /* Add this to center the filter buttons */
-  .category-filters {
-    justify-content: center !important;
-    padding-bottom: 0;
-  }
-
-  .mobile-art-view {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .mobile-category-section {
-    background: rgba(30, 30, 30, 0.8);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .mobile-category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background: rgba(40, 40, 40, 0.8);
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  .mobile-category-header:hover {
-    background: rgba(60, 60, 60, 0.8);
-  }
-
-  .mobile-category-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #fff;
-  }
-
-  .toggle-icon {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #a855f7;
-    transition: transform 0.3s ease;
-  }
-
-  .mobile-art-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 1rem;
-    transition: all 0.3s ease;
-  }
-
-  /* Adjust card sizes for mobile */
-  .mobile-art-gallery .art-card {
-    margin-bottom: 0;
-  }
-
-  .mobile-art-gallery .art-image-container {
-    height: 160px;
-  }
-
-  .mobile-art-gallery .art-info h3 {
-    font-size: 1rem;
-  }
-
-  .mobile-art-gallery .art-description {
-    font-size: 0.8rem;
-  }
-}
-
-  /* Adjust card sizes for mobile */
-  .mobile-art-gallery .art-card {
-    margin-bottom: 0;
-  }
-
-  .mobile-art-gallery .art-image-container {
-    height: 160px;
-  }
-
-  .mobile-art-gallery .art-info h3 {
-    font-size: 1rem;
-  }
-
-  .mobile-art-gallery .art-description {
-    font-size: 0.8rem;
-  }
-}
-/* Ensure desktop view is always visible on larger screens */
-@media (min-width: 769px) {
-  .art-gallery {
-    display: grid !important; /* Force display */
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    height: 200px;
   }
   
-  .mobile-art-view {
-    display: none !important; /* Completely hide mobile view */
+  .mobile-art-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-art-gallery .art-image-container {
+    height: 220px;
   }
 }
-/* Keep all your existing desktop styles below */
-
-/* Keep all your existing desktop styles below */
