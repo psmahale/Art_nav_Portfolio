@@ -32,9 +32,10 @@ const Navbar = () => {
 
   const socialItems = [
     { icon: <FaGithub />, url: "https://github.com/psmahale" },
-    { icon: <FaLinkedin />, url: "http://www.linkedin.com/in/psmahale" },
+    { icon: <FaLinkedin />, url: "www.linkedin.com/in/psmahale" },
     { icon: <FaTwitter />, url: "https://x.com/pranav_1911?t=Rc2NKq5lKB7vKqJbHd0-Vg&s=09" }
   ];
+
   const handleNavClick = () => {
     if (isMobile) {
       setIsOpen(false);
@@ -77,17 +78,16 @@ const Navbar = () => {
     <>
       {isMobile && (
         <button
-          className={`mobile-toggle ${isOpen ? "open" : ""}`}
+          className="mobile-toggle"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation"
-          style={{ left: isOpen ? '290px' : '1.2rem' }}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
-          {isOpen ? <FaTimes /> : <FaBars />}
+          {isOpen ? <FaTimes className="toggle-icon" /> : <FaBars className="toggle-icon" />}
         </button>
       )}
 
       <nav className={`navbar ${isOpen ? "mobile-open" : ""}`}>
-        <ul className={`nav-links ${isOpen ? "open" : ""}`}>
+        <ul className="nav-links">
           {navItems.map((item) => (
             <li
               key={item.id}
@@ -96,7 +96,7 @@ const Navbar = () => {
             >
               <a href={`#${item.id}`} aria-label={item.name}>
                 <span className="nav-icon">{item.icon}</span>
-                <span className="nav-text">{item.name}</span>
+                {!isMobile && <span className="nav-text">{item.name}</span>}
               </a>
             </li>
           ))}
