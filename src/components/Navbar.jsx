@@ -32,7 +32,7 @@ const Navbar = () => {
 
   const socialItems = [
     { icon: <FaGithub />, url: "https://github.com/psmahale" },
-    { icon: <FaLinkedin />, url: "www.linkedin.com/in/psmahale" },
+    { icon: <FaLinkedin />, url: "http://www.linkedin.com/in/psmahale" },
     { icon: <FaTwitter />, url: "https://x.com/pranav_1911?t=Rc2NKq5lKB7vKqJbHd0-Vg&s=09" }
   ];
   const handleNavClick = () => {
