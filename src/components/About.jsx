@@ -64,7 +64,7 @@ const About = () => {
                 <div className="timeline-date">2023 - 2026 (Expected)</div>
                 <h4>Bachelor of Engineering in Computer Science</h4>
                 <p className="institution">SVPM's College of Engineering, Malegaon</p>
-                <p className="achievement">Current CGPA: 8.34 (Till 2nd Year)</p>
+                <p className="achievement">Current CGPA: 8.24 (Till 3rd Year)</p>
               </div>
             </div>
             <div className="timeline-item">
