@@ -10,6 +10,7 @@ import p14 from "../assets/Global_cafe.jpg";
 import p11 from "../assets/hRX.jpg";
 import p5 from "../assets/HRX2.jpeg";
 import p7 from "../assets/Lalit.jpeg";
+import p15 from "../assets/logo6.png"; // Assuming you have a logo image for HareTech
 import p12 from "../assets/Nature.jpeg";
 import p13 from "../assets/Nature2.jpg";
 import p6 from "../assets/Ridhi.jpeg";
@@ -17,6 +18,8 @@ import p10 from "../assets/Samantha.jpeg";
 import p4 from "../assets/Sarkar.jpeg";
 import p8 from "../assets/Shruti.jpeg";
 import p9 from "../assets/SRK.jpg";
+
+
 
 const Art = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -167,6 +170,16 @@ const Art = () => {
       price: "NFS",
       commission: false,
       image: p12
+    },
+    {
+      id: 15,
+      title: "HareTech Engineering Company Logo",
+      description: "Logo shows the Company is about fire safety and engineering.",
+      date: "May 2025",
+      category: "digital",
+      price: "₹2000",
+      commission: true,
+      image: p15
     },
 
     // ... (keep all your other artwork objects) ...
