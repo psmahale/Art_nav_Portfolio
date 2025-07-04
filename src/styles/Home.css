@@ -181,14 +181,27 @@
     max-width: 250px;
   }
 
+  
+}
+/* Mobile view - Updated button centering */
+@media (max-width: 576px) {
   .home-buttons {
     flex-direction: column;
-    align-items: center;
+    width: 100%; /* Full width container */
+    align-items: center; /* Center buttons horizontally */
+    gap: 0.75rem; /* Reduced gap for mobile */
   }
 
   .btn {
-    width: 100%;
+    width: 80%; /* Slightly less than full width */
+    max-width: 250px; /* Prevents over-stretching */
+    margin-bottom: 0; /* Remove if using gap */
     text-align: center;
-    margin-bottom: 1rem;
+    padding: 0.75rem 1.5rem; /* Slightly smaller padding */
   }
+}
+
+/* Optional: Add this to prevent button text wrapping */
+.btn {
+  white-space: nowrap;
 }
