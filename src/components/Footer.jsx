@@ -27,16 +27,16 @@ const Footer = () => {
               Digital artist & video editor creating compelling visual experiences.
             </p>
             <div className="footer-socials">
-              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/psmahale" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <FaGithub className="social-icon" />
               </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="www.linkedin.com/in/psmahale" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin className="social-icon" />
               </a>
               <a href="https://instagram.com/artnav360" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram className="social-icon" />
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a href="https://x.com/pranav_1911?t=Rc2NKq5lKB7vKqJbHd0-Vg&s=09" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <FaTwitter className="social-icon" />
               </a>
             </div>
