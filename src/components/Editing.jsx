@@ -1,66 +1,74 @@
-// Editing.js (Final Working Version)
 import { useState } from 'react';
-import { FaCamera, FaEdit, FaStar, FaYoutube } from 'react-icons/fa';
+import { FaCamera, FaEdit, FaPlay, FaStar, FaYoutube } from 'react-icons/fa';
 import '../styles/Editing.css';
 
-// Import sample thumbnails (replace with your actual images)
-import thumbnail1 from '../assets/ana.jpg';
+// Only import the custom thumbnail we have
+import anaThumbnail from '../assets/ana.jpg';
 
 const Editing = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const projects = [
-  {
-    id: 1,
-    title: "Drawing a Portrait of Ana De Armas",
-    type: "video",
-    description: "4K cinematic travel video with dynamic transitions",
-    software: ["Premiere Pro", "After Effects"],
-    category: "personal",
-    youtubeId: "PE68w-AdAI4", // Extracted from YouTube URL
-    thumbnail: thumbnail1
-  },
-  {
-    id: 3,
-    title: "College Publicity Video",
-    type: "video",
-    description: "Lyric-based visual effects",
-    software: ["After Effects", "DaVinci Resolve"],
-    category: "personal",
-    youtubeId: "Ymbs49iplYU",
-    thumbnail: "https://img.youtube.com/vi/Ymbs49iplYU/maxresdefault.jpg"
-  },
-  {
-    id: 4,
-    title: "Wedding Save The Date",
-    type: "video",
-    description: "30-second product highlight reel",
-    software: ["Premiere Pro", "After Effects"],
-    category: "commission",
-    youtubeId: "Aq0eEEk5cqQ",
-    thumbnail: "https://img.youtube.com/vi/Aq0eEEk5cqQ/maxresdefault.jpg"
-  },
-  {
-    id: 6,
-    title: "Dr Strange Magical Effect",
-    type: "video",
-    description: "Narrative editing with color grading",
-    software: ["DaVinci Resolve", "Premiere Pro"],
-    category: "personal",
-    youtubeId: "xmloiKbbtSg",
-    thumbnail: "https://img.youtube.com/vi/xmloiKbbtSg/maxresdefault.jpg"
-  },
-  {
-    id: 8,
-    title: "Drawing a Portrait of youtuber known as Anithing",
-    type: "video",
-    description: "Animated channel introduction",
-    software: ["After Effects"],
-    category: "personal",
-    youtubeId: "ax4q8vssXvY",
-    thumbnail: "https://img.youtube.com/vi/ax4q8vssXvY/maxresdefault.jpg"
-  }
-];
+    {
+      id: 1,
+      title: "Drawing a Portrait of Ana De Armas",
+      type: "video",
+      description: "4K cinematic travel video with dynamic transitions",
+      software: ["Premiere Pro", "After Effects"],
+      category: "personal",
+      youtubeId: "PE68w-AdAI4",
+      youtubeLink: "https://youtu.be/PE68w-AdAI4?si=99oT9tCAVBL2vzuD",
+      customThumbnail: anaThumbnail // Only for this video
+    },
+    {
+      id: 3,
+      title: "College Publicity Video",
+      type: "video",
+      description: "Lyric-based visual effects",
+      software: ["After Effects", "DaVinci Resolve"],
+      category: "personal",
+      youtubeId: "Ymbs49iplYU",
+      youtubeLink: "https://youtu.be/Ymbs49iplYU?si=ufH5NJ7Qbesv_Bo4"
+    },
+    {
+      id: 4,
+      title: "Wedding Save The Date",
+      type: "video",
+      description: "30-second product highlight reel",
+      software: ["Premiere Pro", "After Effects"],
+      category: "commission",
+      youtubeId: "Aq0eEEk5cqQ",
+      youtubeLink: "https://youtu.be/Aq0eEEk5cqQ?feature=share"
+    },
+    {
+      id: 6,
+      title: "Dr Strange Magical Effect",
+      type: "video",
+      description: "Narrative editing with color grading",
+      software: ["DaVinci Resolve", "Premiere Pro"],
+      category: "personal",
+      youtubeId: "xmloiKbbtSg",
+      youtubeLink: "https://youtu.be/xmloiKbbtSg?feature=share"
+    },
+    {
+      id: 8,
+      title: "Drawing a Portrait of youtuber known as Anithing",
+      type: "video",
+      description: "Animated channel introduction",
+      software: ["After Effects"],
+      category: "personal",
+      youtubeId: "ax4q8vssXvY",
+      youtubeLink: "https://youtu.be/ax4q8vssXvY"
+    }
+  ];
+
+  // Get thumbnail URL - custom if available, otherwise YouTube default
+  const getThumbnail = (project) => {
+    if (project.customThumbnail) {
+      return project.customThumbnail;
+    }
+    return `https://img.youtube.com/vi/${project.youtubeId}/maxresdefault.jpg`;
+  };
 
   const filters = [
     { id: 'all', name: 'All Work', icon: <FaEdit /> },
@@ -79,14 +87,12 @@ const Editing = () => {
 
   return (
     <section id="editing" className="editing-section">
-      {/* 1. Header */}
       <div className="editing-header">
         <h2>Editing Portfolio <span>by Pranav Mahale</span></h2>
         <div className="section-divider"></div>
         <p>Showcasing my video editing projects and photo post-processing samples</p>
       </div>
 
-      {/* 2. Filters */}
       <div className="filter-container">
         <div className="editing-filters">
           {filters.map(filter => (
@@ -101,7 +107,6 @@ const Editing = () => {
         </div>
       </div>
 
-      {/* 3. Projects Grid */}
       <div className="content-container">
         {filteredProjects.length > 0 ? (
           <div className="editing-grid">
@@ -109,13 +114,14 @@ const Editing = () => {
               <div className="edit-project-card" key={project.id}>
                 <div className="edit-thumbnail-container">
                   <img 
-                    src={project.thumbnail} 
+                    src={getThumbnail(project)} 
                     alt={project.title}
                     loading="lazy"
                     className="edit-thumbnail"
                     onError={(e) => {
-                      e.target.onerror = null; 
-                      e.target.src = 'https://via.placeholder.com/400x300?text=Thumbnail+Not+Found';
+                      e.target.onerror = null;
+                      // Fallback to lower quality YouTube thumbnail if maxres fails
+                      e.target.src = `https://img.youtube.com/vi/${project.youtubeId}/hqdefault.jpg`;
                     }}
                   />
                   {project.type === 'video' && (
@@ -123,7 +129,8 @@ const Editing = () => {
                       className="play-overlay" 
                       onClick={() => window.open(project.youtubeLink, '_blank')}
                     >
-                      <FaYoutube className="play-icon" />
+                      <FaPlay className="play-icon" />
+                      <span>Watch on YouTube</span>
                     </div>
                   )}
                   {project.category === 'commission' && (
