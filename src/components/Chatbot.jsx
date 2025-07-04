@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { BsRobot } from 'react-icons/bs';
 import { FiMessageSquare, FiMinimize2, FiSend } from 'react-icons/fi';
-import "../styles/Chatbot.css";
+import "../styles/chatbot.css";
 
 const Chatbot = () => {
   // Resume data with structured information
