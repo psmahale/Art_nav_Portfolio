@@ -1,6 +1,16 @@
 import { FaCalendarAlt, FaIdCard } from 'react-icons/fa';
 import '../styles/Certificate.css';
 
+// Import all certificate images
+import cert1 from '../assets/Restful_api.jpg';
+import cert2 from '../assets/IBM.jpg';
+import cert3 from '../assets/Hackathon.jpg';
+import cert4 from '../assets/AI&ML_Wokshop.jpg';
+import cert5 from '../assets/Robotics.jpg';
+import cert6 from '../assets/Cpp.jpg';
+import cert7 from '../assets/SVN.jpg';
+import cert8 from '../assets/Adobe_After_effects.jpg';
+
 const Certificate = () => {
   const certificates = [
     {
@@ -10,7 +20,7 @@ const Certificate = () => {
       date: "December 2024",
       description: "Successfully completed the course on designing RESTful APIs using Python Flask framework",
       skills: ["Python", "Flask", "API Design", "Backend Development"],
-      image: "src/assets/Restful_api.jpg"
+      image: cert1
     },
     {
       id: 2,
@@ -19,7 +29,7 @@ const Certificate = () => {
       date: "July 2024",
       description: "Completed an online non-credit course on Python for Data Science, AI and Development",
       skills: ["Python", "Data Science", "AI", "Development"],
-      image: "src/assets/IBM.jpg"
+      image: cert2
     },
     {
       id: 3,
@@ -28,7 +38,7 @@ const Certificate = () => {
       date: "January-February 2025",
       description: "Participated in 36-hour national level hackathon focused on innovative solutions",
       skills: ["Problem Solving", "Teamwork", "Rapid Prototyping"],
-      image: "src/assets/Hackathon.jpg"
+      image: cert3
     },
     {
       id: 4,
@@ -37,7 +47,7 @@ const Certificate = () => {
       date: "October 2024",
       description: "Completed 2-day offline workshop on Artificial Intelligence with Machine Learning at IISc Bangalore",
       skills: ["Artificial Intelligence", "Machine Learning", "Workshop"],
-      image: "src/assets/AI&ML_Wokshop.jpg"
+      image: cert4
     },
     {
       id: 5,
@@ -46,7 +56,7 @@ const Certificate = () => {
       date: "August 2023",
       description: "Completed 15-day virtual internship program on Robotics",
       skills: ["Robotics", "Internship", "Virtual Training"],
-      image: "src/assets/Robotics.jpg"
+      image: cert5
     },
     {
       id: 6,
@@ -55,17 +65,8 @@ const Certificate = () => {
       date: "October 2023",
       description: "Successfully completed the course in C++ Language with grade A",
       skills: ["C++", "Programming", "Software Development"],
-      image: "src/assets/Cpp.jpg"
+      image: cert6
     },
-    {
-  id: 8,
-  title: "Adobe After Effects: Rain Stop Visual Effects for Beginners",
-  issuer: "Alison",
-  date: "March 2025",
-  description: "Successfully completed a beginner-level course on creating rain stop visual effects using Adobe After Effects.",
-  skills: ["Adobe After Effects", "Visual Effects", "Video Editing"],
-  image: "src/assets/Adobe_After_effects.jpg"
-},
     {
       id: 7,
       title: "Volunteer Appreciation Certificate",
@@ -73,7 +74,16 @@ const Certificate = () => {
       date: "September 2024",
       description: "Recognized for outstanding dedication as a volunteer in World Record-Setting Event commemorating Swami Vivekananda's 1893 Chicago speech",
       skills: ["Volunteering", "Event Management", "Community Service"],
-      image: "src/assets/SVN.jpg"
+      image: cert7
+    },
+    {
+      id: 8,
+      title: "Adobe After Effects: Rain Stop Visual Effects for Beginners",
+      issuer: "Alison",
+      date: "March 2025",
+      description: "Successfully completed a beginner-level course on creating rain stop visual effects using Adobe After Effects.",
+      skills: ["Adobe After Effects", "Visual Effects", "Video Editing"],
+      image: cert8
     }
   ];
 
