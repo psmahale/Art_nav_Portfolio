@@ -1,95 +1,66 @@
 // Editing.js (Final Working Version)
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaCamera, FaEdit, FaStar, FaYoutube } from 'react-icons/fa';
 import '../styles/Editing.css';
 
 // Import sample thumbnails (replace with your actual images)
-import thumbnail1 from '../assets/p1.jpg';
-import thumbnail3 from '../assets/p2.jpg';
-import thumbnail2 from '../assets/p5.jpg';
+import thumbnail1 from '../assets/ana.jpg';
 
 const Editing = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const projects = [
-    {
-      id: 1,
-      title: "Travel Vlog - Iceland",
-      type: "video",
-      description: "4K cinematic travel video with dynamic transitions",
-      software: ["Premiere Pro", "After Effects"],
-      category: "commission",
-      thumbnail: thumbnail1,
-      youtubeLink: "https://youtube.com/shorts/PE68w-AdAI4?si=K9YJnyLmGBZTnb8B"
-    },
-    {
-      id: 2,
-      title: "Portrait Series - Urban",
-      type: "photo",
-      description: "Street photography color grading",
-      software: ["Lightroom", "Photoshop"],
-      category: "personal",
-      thumbnail: thumbnail2
-    },
-    {
-      id: 3,
-      title: "Music Video - EDM Artist",
-      type: "video",
-      description: "Lyric-based visual effects",
-      software: ["After Effects", "DaVinci Resolve"],
-      category: "commission",
-      thumbnail: thumbnail3,
-      youtubeLink: "https://youtu.be/example2"
-    },
-    {
-      id: 4,
-      title: "Product Commercial",
-      type: "video",
-      description: "30-second product highlight reel",
-      software: ["Premiere Pro", "After Effects"],
-      category: "commission",
-      thumbnail: thumbnail1,
-      youtubeLink: "https://youtu.be/example3"
-    },
-    {
-      id: 5,
-      title: "Landscape Photography",
-      type: "photo",
-      description: "HDR nature shots with advanced editing",
-      software: ["Lightroom", "Photoshop"],
-      category: "personal",
-      thumbnail: thumbnail2
-    },
-    {
-      id: 6,
-      title: "Short Film - Drama",
-      type: "video",
-      description: "Narrative editing with color grading",
-      software: ["DaVinci Resolve", "Premiere Pro"],
-      category: "personal",
-      thumbnail: thumbnail3,
-      youtubeLink: "https://youtu.be/example4"
-    },
-    {
-      id: 7,
-      title: "Fashion Editorial",
-      type: "photo",
-      description: "High-end fashion retouching",
-      software: ["Photoshop", "Lightroom"],
-      category: "commission",
-      thumbnail: thumbnail1
-    },
-    {
-      id: 8,
-      title: "YouTube Intro",
-      type: "video",
-      description: "Animated channel introduction",
-      software: ["After Effects"],
-      category: "commission",
-      thumbnail: thumbnail2,
-      youtubeLink: "https://youtu.be/example5"
-    }
-  ];
+  {
+    id: 1,
+    title: "Drawing a Portrait of Ana De Armas",
+    type: "video",
+    description: "4K cinematic travel video with dynamic transitions",
+    software: ["Premiere Pro", "After Effects"],
+    category: "personal",
+    youtubeId: "PE68w-AdAI4", // Extracted from YouTube URL
+    thumbnail: thumbnail1
+  },
+  {
+    id: 3,
+    title: "College Publicity Video",
+    type: "video",
+    description: "Lyric-based visual effects",
+    software: ["After Effects", "DaVinci Resolve"],
+    category: "personal",
+    youtubeId: "Ymbs49iplYU",
+    thumbnail: "https://img.youtube.com/vi/Ymbs49iplYU/maxresdefault.jpg"
+  },
+  {
+    id: 4,
+    title: "Wedding Save The Date",
+    type: "video",
+    description: "30-second product highlight reel",
+    software: ["Premiere Pro", "After Effects"],
+    category: "commission",
+    youtubeId: "Aq0eEEk5cqQ",
+    thumbnail: "https://img.youtube.com/vi/Aq0eEEk5cqQ/maxresdefault.jpg"
+  },
+  {
+    id: 6,
+    title: "Dr Strange Magical Effect",
+    type: "video",
+    description: "Narrative editing with color grading",
+    software: ["DaVinci Resolve", "Premiere Pro"],
+    category: "personal",
+    youtubeId: "xmloiKbbtSg",
+    thumbnail: "https://img.youtube.com/vi/xmloiKbbtSg/maxresdefault.jpg"
+  },
+  {
+    id: 8,
+    title: "Drawing a Portrait of youtuber known as Anithing",
+    type: "video",
+    description: "Animated channel introduction",
+    software: ["After Effects"],
+    category: "personal",
+    youtubeId: "ax4q8vssXvY",
+    thumbnail: "https://img.youtube.com/vi/ax4q8vssXvY/maxresdefault.jpg"
+  }
+];
 
   const filters = [
     { id: 'all', name: 'All Work', icon: <FaEdit /> },
@@ -140,6 +111,7 @@ const Editing = () => {
                   <img 
                     src={project.thumbnail} 
                     alt={project.title}
+                    loading="lazy"
                     className="edit-thumbnail"
                     onError={(e) => {
                       e.target.onerror = null; 

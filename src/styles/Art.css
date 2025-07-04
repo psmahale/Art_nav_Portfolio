@@ -1,7 +1,7 @@
 /* Art Gallery Section Styles */
 .art-section {
   padding: 4rem 2rem 6rem calc(100px + 2.5rem);
-  background: rgb(0, 0, 0);
+  background: transparent;
   color: #fff;
   min-height: 100vh;
   margin-top: 0px;
@@ -180,6 +180,7 @@
 }
 
 .art-image {
+  
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -294,6 +295,100 @@
   color: #646cff;
 }
 
+/* Mobile View Styles */
+.mobile-art-view {
+  display: none;
+}
+
+.mobile-category-section {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-category-header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: rgba(40, 40, 40, 0.8);
+  transition: background 0.3s ease;
+}
+
+.mobile-category-header:hover {
+  background: rgba(60, 60, 60, 0.8);
+}
+
+.mobile-category-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.toggle-icon {
+  font-size: 1.2rem;
+  color: #a855f7;
+}
+
+.mobile-category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.mobile-category-content.expanded {
+  max-height: 5000px;
+}
+
+.mobile-art-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .art-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .art-section {
+    padding: 4rem 2rem 6rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .art-gallery {
+    display: none;
+  }
+  
+  .mobile-art-view {
+    display: block;
+  }
+  
+  .art-section {
+    padding: 2rem 1rem 3rem 1rem;
+  }
+  
+  .header-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .art-image-container {
+    height: 180px;
+  }
+  
+  .art-info h3 {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 576px) {
   .header-content h2 {
     font-size: 1.5rem;
@@ -306,15 +401,6 @@
   .section-divider {
     width: 80px;
     height: 3px;
-  }
-
-  .art-section {
-    padding: 2rem 1rem 3rem 1rem;
-  }
-
-  .art-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
   }
 
   .art-image-container {
@@ -351,3 +437,156 @@
     display: none;
   }
 }
+/* Add these mobile-specific styles at the end of your existing CSS */
+
+@media (max-width: 768px) {
+  .mobile-art-view {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .mobile-category-section {
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  .mobile-category-title {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #646cff;
+  }
+
+  .mobile-art-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Adjust card sizes for mobile */
+  .mobile-art-gallery .art-card {
+    margin-bottom: 0;
+  }
+
+  .mobile-art-gallery .art-image-container {
+    height: 160px;
+  }
+
+  .mobile-art-gallery .art-info h3 {
+    font-size: 1rem;
+  }
+
+  .mobile-art-gallery .art-description {
+    font-size: 0.8rem;
+  }
+}
+/* Add these mobile-specific styles at the end of your existing CSS */
+
+@media (max-width: 768px) {
+  /* Add this to center the filter buttons */
+  .category-filters {
+    justify-content: center !important;
+    padding-bottom: 0;
+  }
+
+  .mobile-art-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-category-section {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(40, 40, 40, 0.8);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .mobile-category-header:hover {
+    background: rgba(60, 60, 60, 0.8);
+  }
+
+  .mobile-category-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .toggle-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #a855f7;
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-art-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  /* Adjust card sizes for mobile */
+  .mobile-art-gallery .art-card {
+    margin-bottom: 0;
+  }
+
+  .mobile-art-gallery .art-image-container {
+    height: 160px;
+  }
+
+  .mobile-art-gallery .art-info h3 {
+    font-size: 1rem;
+  }
+
+  .mobile-art-gallery .art-description {
+    font-size: 0.8rem;
+  }
+}
+
+  /* Adjust card sizes for mobile */
+  .mobile-art-gallery .art-card {
+    margin-bottom: 0;
+  }
+
+  .mobile-art-gallery .art-image-container {
+    height: 160px;
+  }
+
+  .mobile-art-gallery .art-info h3 {
+    font-size: 1rem;
+  }
+
+  .mobile-art-gallery .art-description {
+    font-size: 0.8rem;
+  }
+}
+/* Ensure desktop view is always visible on larger screens */
+@media (min-width: 769px) {
+  .art-gallery {
+    display: grid !important; /* Force display */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .mobile-art-view {
+    display: none !important; /* Completely hide mobile view */
+  }
+}
+/* Keep all your existing desktop styles below */
+
+/* Keep all your existing desktop styles below */

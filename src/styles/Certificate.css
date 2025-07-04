@@ -1,7 +1,7 @@
 /* CERTIFICATE SECTION */
 .certificate-section {
     padding: 5rem 2rem 7rem calc(100px + 2.5rem);
-    background:rgb(0, 0, 0);
+    background:transparent;
     color: #fff;
     display: flex;
     flex-direction: column;

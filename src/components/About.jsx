@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-    FaChartLine,
-    FaCode,
-    FaDatabase,
-    FaFilm,
-    FaGraduationCap,
-    FaLaptopCode,
-    FaPalette
+  FaBriefcase // Add this new icon
+  ,
+
+
+
+  FaChartLine,
+  FaCode,
+  FaDatabase,
+  FaFilm,
+  FaGraduationCap,
+  FaLaptopCode,
+  FaPalette
 } from "react-icons/fa";
 import "../styles/About.css";
 
@@ -20,10 +25,9 @@ const About = () => {
       content: (
         <div className="profile-content">
           <p className="section-text">
-            I'm a passionate Computer Engineering student specializing in web
-            development and AI/ML. With expertise in React.js, Django, and
-            Python, I build innovative solutions while continuously expanding my
-            knowledge in emerging technologies.
+            AI/ML-focused Computer Engineering student with expertise in Python, Computer Vision,
+            and modern development tools. currently enhancing CCTV security features at StomatoBot Technologies. Developing real-time threat detection models using Computer Vision and edge AI. Passionate about building scalable security solutions 
+        with Python, OpenCV, and deep learning frameworks.
           </p>
           <div className="highlights">
             <div className="highlight-item">
@@ -31,8 +35,8 @@ const About = () => {
                 <FaDatabase className="highlight-icon" />
               </div>
               <div className="highlight-text">
-                <h4>Web Development</h4>
-                <p>React, Django, JavaScript, Bootstrap</p>
+                <h4>AI/ML Development</h4>
+                <p>Python, Computer Vision, TensorFlow, FastAPI</p>
               </div>
             </div>
             <div className="highlight-item">
@@ -40,8 +44,8 @@ const About = () => {
                 <FaChartLine className="highlight-icon" />
               </div>
               <div className="highlight-text">
-                <h4>Data Analytics</h4>
-                <p>Tableau, Power BI, Pandas, NumPy</p>
+                <h4>AI-Assisted Development</h4>
+                <p>ChatGPT, DeepSeek, Claude AI, Cursor AI</p>
               </div>
             </div>
           </div>
@@ -86,6 +90,42 @@ const About = () => {
       ),
     },
     {
+      title: "Experience",
+      icon: <FaBriefcase className="tab-icon" />,
+      content: (
+        <div className="experience-content">
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <div className="timeline-date">March 2025 - Present</div>
+                <h4>AI/ML Intern (Computer Vision)</h4>
+                <p className="institution">StomatoBot Technologies Pvt Ltd</p>
+                <div className="achievement">
+                  <p>• Developing computer vision models for dental diagnostics</p>
+                  <p>• Implementing image processing pipelines</p>
+                  <p>• Optimizing ML model performance</p>
+                  <p>• 6-month committed internship</p>
+                </div>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <div className="timeline-date">August 2023</div>
+                <h4>Robotics Intern</h4>
+                <p className="institution">Kodacy (Virtual Internship)</p>
+                <div className="achievement">
+                  <p>• Completed 15-day virtual internship program</p>
+                  <p>• Learned fundamentals of robotics systems</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
       title: "Technical Skills",
       icon: <FaCode className="tab-icon" />,
       content: (
@@ -100,46 +140,48 @@ const About = () => {
                 <span>JavaScript</span>
                 <span>Bootstrap</span>
                 <span>Django</span>
+                <span>FastAPI</span>
                 <span>Python</span>
-                <span>PHP</span>
                 <span>Java</span>
                 <span>C++</span>
               </div>
             </div>
             <div className="skills-category">
-              <h4><FaDatabase className="category-icon" /> Data & AI</h4>
+              <h4><FaDatabase className="category-icon" /> AI/ML & Data</h4>
               <div className="skills-list">
+                <span>TensorFlow</span>
+                <span>Computer Vision</span>
                 <span>Pandas</span>
                 <span>NumPy</span>
                 <span>Matplotlib</span>
-                <span>Tableau</span>
-                <span>Power BI</span>
                 <span>MySQL</span>
                 <span>PostgreSQL</span>
               </div>
             </div>
             <div className="skills-category">
-              <h4><FaFilm className="category-icon" /> Video Editing</h4>
+              <h4><FaPalette className="category-icon" /> AI Tools</h4>
+              <div className="skills-list">
+                <span>ChatGPT</span>
+                <span>DeepSeek</span>
+                <span>Claude AI</span>
+                <span>Google Stitch AI</span>
+                <span>Cursor AI</span>
+              </div>
+            </div>
+            <div className="skills-category">
+              <h4><FaFilm className="category-icon" /> Creative</h4>
               <div className="skills-list">
                 <span>Adobe Premiere Pro</span>
                 <span>After Effects</span>
                 <span>CapCut</span>
                 <span>DaVinci Resolve</span>
-              </div>
-            </div>
-            <div className="skills-category">
-              <h4><FaPalette className="category-icon" /> Digital Art</h4>
-              <div className="skills-list">
                 <span>Photoshop</span>
-                <span>Illustrator</span>
-                <span>Procreate</span>
-                <span>Figma</span>
               </div>
             </div>
           </div>
         </div>
       ),
-    },
+    }
   ];
 
   return (

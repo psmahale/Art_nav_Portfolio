@@ -1,8 +1,17 @@
-import React from 'react';
-import profileImage from '../assets/DP2.jpg'; // Adjust path if needed
+import profileImage from '../assets/DP2.jpg';
 import '../styles/Home.css';
 
 const Home = () => {
+  const handleDownloadCV = () => {
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = '/documents/PranavMahaleCVNEW2025.docx';
+    link.download = 'Pranav_Mahale_CV.docx'; // The filename for download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="home-section">
       <div className="home-card">
@@ -12,13 +21,15 @@ const Home = () => {
           </h1>
           <p className="home-subtitle">Computer Engineer</p>
           <p className="home-description">
-            I create modern, responsive websites and web applications with focus on 
-            user experience and clean code. Let's build something amazing together.
+            Building digital experiences that matter. Let’s create something extraordinary. Explore my work ↓
           </p>
           <div className="home-buttons">
-            <a href="#portfolio" className="btn btn-primary">
-              Get My Cv
-            </a>
+            <button 
+              onClick={handleDownloadCV} 
+              className="btn btn-primary"
+            >
+              Get My CV
+            </button>
             <a href="#contact" className="btn btn-outline">
               Contact Me
             </a>

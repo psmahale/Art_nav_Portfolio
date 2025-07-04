@@ -1,3 +1,4 @@
+// Updated Chatbot.jsx (unchanged except for removing the unused 'open' class)
 import { useEffect, useRef, useState } from 'react';
 import { BsRobot } from 'react-icons/bs';
 import { FiMessageSquare, FiMinimize2, FiSend } from 'react-icons/fi';
@@ -203,7 +204,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className={`chatbot-container ${isOpen ? 'open' : ''}`}>
+    <div className="chatbot-container">
       <button 
         className="chatbot-toggle"
         onClick={() => setIsOpen(!isOpen)}
@@ -215,7 +216,7 @@ const Chatbot = () => {
       <div className={`chatbot-box ${isOpen ? 'visible' : ''}`}>
         <div className="chatbot-header">
           <BsRobot size={20} />
-          <h3>Say Hii to JARVIS</h3>
+          <h3>  Say Hii to JARVIS</h3>
         </div>
         
         <div className="chatbot-messages">

@@ -1,8 +1,10 @@
-import React from "react";
 import { FaChartLine, FaCode, FaDatabase, FaExternalLinkAlt, FaGithub, FaServer } from "react-icons/fa";
 import thumbnail1 from '../assets/p1.jpg';
-import thumbnail3 from '../assets/p2.jpg';
-import thumbnail2 from '../assets/p5.jpg';
+import thumbnail2 from '../assets/p2.jpg';
+import thumbnail3 from '../assets/p3.jpg';
+import thumbnail4 from '../assets/p4.jpg';
+import thumbnail5 from '../assets/p5.jpg';
+import thumbnail6 from '../assets/p6.jpg';
 import "../styles/Projects.css";
 
 const Projects = () => {
@@ -19,17 +21,17 @@ const Projects = () => {
     },
     {
       title: "Medical Management System",
-      description: "Full-stack medical records system with React frontend and PostgreSQL backend, improving performance by 40% over previous PHP/MySQL implementation.",
-      technologies: ["React", "PostgreSQL", "Java", "PHP", "Bootstrap"],
+      description: "Full-stack medical records system with React frontend and MySQL backend. Using PHP for server-side logic, it allows medicle mangaer to manage patient records, Medicines and Billings.",
+      technologies: ["React", "MySQL", "Java", "PHP", "Tailwind"],
       github: "#",
       demo: "#",
-      thumbnail: thumbnail3,
+      thumbnail: thumbnail2,
       category: "Full Stack",
       icon: <FaServer />
     },
     {
       title: "Government Schemes Portal",
-      description: "Public-facing portal for government scheme applications with secure authentication and document upload. Serves 1,200+ monthly active users.",
+      description: "A design of Public-facing portal for government scheme applications. This project includes a user-friendly interface for citizens to apply for various government schemes.",
       technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "PHP"],
       github: "#",
       demo: "#",
@@ -39,11 +41,11 @@ const Projects = () => {
     },
     {
       title: "Data Analytics Dashboard",
-      description: "Interactive BI dashboard with real-time data processing and custom visualizations built with Power BI and Tableau.",
-      technologies: ["Power BI", "Tableau", "Python", "Pandas", "SQL"],
+      description: "Interactive BI dashboard with real-time data processing and custom visualizations built with Tableau.",
+      technologies: ["Tableau", "Kaggle"],
       github: "#",
       demo: "#",
-      thumbnail: thumbnail2, // Use the correct thumbnail key
+      thumbnail: thumbnail4, // Use the correct thumbnail key
       category: "Data Analytics",
       icon: <FaDatabase />
     },
@@ -53,8 +55,18 @@ const Projects = () => {
       technologies: ["C++", "OOP", "File Handling"],
       github: "#",
       demo: "#",
-      thumbnail: thumbnail2, // Use the correct thumbnail key
+      thumbnail: thumbnail5, // Use the correct thumbnail key
       category: "Desktop App",
+      icon: <FaCode />
+    },
+    {
+      title: "Personal Portfolio Website",
+      description: "Modern responsive portfolio built with React showcasing my academic journey, skills, and projects. Features dynamic content rendering and smooth animations.",
+      technologies: ["React", "CSS Modules", "Framer Motion", "EmailJS","ChatGpt","DeepSeek"],
+      github: "#",
+      demo: "#",
+      thumbnail: thumbnail6,
+      category: "Frontend Development",
       icon: <FaCode />
     }
   ];
@@ -82,7 +94,7 @@ const Projects = () => {
                 <span>{project.category}</span>
               </div>
             </div>
-            
+
             <div className="project-content">
               <div className="project-header">
                 <h3>{project.title}</h3>
@@ -99,9 +111,9 @@ const Projects = () => {
                   )}
                 </div>
               </div>
-              
+
               <p className="project-description">{project.description}</p>
-              
+
               <div className="project-footer">
                 <div className="project-technologies">
                   {project.technologies.map((tech, i) => (

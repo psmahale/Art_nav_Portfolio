@@ -1,86 +1,80 @@
-import { FaCalendarAlt, FaCertificate, FaExternalLinkAlt, FaIdCard } from 'react-icons/fa';
+import { FaCalendarAlt, FaIdCard } from 'react-icons/fa';
 import '../styles/Certificate.css';
 
 const Certificate = () => {
   const certificates = [
     {
       id: 1,
-      title: "Professional Restful API Design Using Python Flask",
-      issuer: "Alison Pvt ltd",
-      date: "June 2023",
-      description: "Mastered advanced techniques in Premiere Pro and After Effects including motion graphics and color grading",
-      skills: ["Video Editing", "Color Grading", "Motion Graphics"],
-      credentialId: "ADV-VID-789XYZ",
-      credentialUrl: "https://example.com/verify/789XYZ",
+      title: "Professional RESTful API Design Using Python Flask",
+      issuer: "Alison",
+      date: "December 2024",
+      description: "Successfully completed the course on designing RESTful APIs using Python Flask framework",
+      skills: ["Python", "Flask", "API Design", "Backend Development"],
       image: "src/assets/Restful_api.jpg"
     },
     {
       id: 2,
-      title: "Photography Composition Professional",
-      issuer: "Nikon School Online",
-      date: "March 2023",
-      description: "Completed professional training in advanced composition techniques and lighting scenarios",
-      skills: ["Composition", "Lighting", "Post-Processing"],
-      credentialId: "NK-COMP-456ABC",
-      credentialUrl: "https://example.com/verify/456ABC",
+      title: "Python for Data Science, AI & Development",
+      issuer: "IBM via Coursera",
+      date: "July 2024",
+      description: "Completed an online non-credit course on Python for Data Science, AI and Development",
+      skills: ["Python", "Data Science", "AI", "Development"],
       image: "src/assets/IBM.jpg"
     },
     {
       id: 3,
-      title: "Photography Composition Professional",
-      issuer: "Nikon School Online",
-      date: "March 2023",
-      description: "Completed professional training in advanced composition techniques and lighting scenarios",
-      skills: ["Composition", "Lighting", "Post-Processing"],
-      credentialId: "NK-COMP-456ABC",
-      credentialUrl: "https://example.com/verify/456ABC",
+      title: "CMR Hackfest 2.0 Participation",
+      issuer: "CMR College of Engineering & Technology",
+      date: "January-February 2025",
+      description: "Participated in 36-hour national level hackathon focused on innovative solutions",
+      skills: ["Problem Solving", "Teamwork", "Rapid Prototyping"],
       image: "src/assets/Hackathon.jpg"
     },
     {
       id: 4,
-      title: "Photography Composition Professional",
-      issuer: "Nikon School Online",
-      date: "March 2023",
-      description: "Completed professional training in advanced composition techniques and lighting scenarios",
-      skills: ["Composition", "Lighting", "Post-Processing"],
-      credentialId: "NK-COMP-456ABC",
-      credentialUrl: "https://example.com/verify/456ABC",
+      title: "AI & ML Workshop",
+      issuer: "Ethical Edufabrica Pvt. Ltd.",
+      date: "October 2024",
+      description: "Completed 2-day offline workshop on Artificial Intelligence with Machine Learning at IISc Bangalore",
+      skills: ["Artificial Intelligence", "Machine Learning", "Workshop"],
       image: "src/assets/AI&ML_Wokshop.jpg"
     },
     {
       id: 5,
-      title: "Photography Composition Professional",
-      issuer: "Nikon School Online",
-      date: "March 2023",
-      description: "Completed professional training in advanced composition techniques and lighting scenarios",
-      skills: ["Composition", "Lighting", "Post-Processing"],
-      credentialId: "NK-COMP-456ABC",
-      credentialUrl: "https://example.com/verify/456ABC",
+      title: "Robotics Internship",
+      issuer: "Kodacy in association with SPACE",
+      date: "August 2023",
+      description: "Completed 15-day virtual internship program on Robotics",
+      skills: ["Robotics", "Internship", "Virtual Training"],
       image: "src/assets/Robotics.jpg"
     },
     {
       id: 6,
-      title: "Photography Composition Professional",
-      issuer: "Nikon School Online",
-      date: "March 2023",
-      description: "Completed professional training in advanced composition techniques and lighting scenarios",
-      skills: ["Composition", "Lighting", "Post-Processing"],
-      credentialId: "NK-COMP-456ABC",
-      credentialUrl: "https://example.com/verify/456ABC",
+      title: "Certificate in C++ Language",
+      issuer: "Savitribai Phule Pune University and ETH Research Lab",
+      date: "October 2023",
+      description: "Successfully completed the course in C++ Language with grade A",
+      skills: ["C++", "Programming", "Software Development"],
       image: "src/assets/Cpp.jpg"
     },
     {
+  id: 8,
+  title: "Adobe After Effects: Rain Stop Visual Effects for Beginners",
+  issuer: "Alison",
+  date: "March 2025",
+  description: "Successfully completed a beginner-level course on creating rain stop visual effects using Adobe After Effects.",
+  skills: ["Adobe After Effects", "Visual Effects", "Video Editing"],
+  image: "src/assets/Adobe_After_effects.jpg"
+},
+    {
       id: 7,
-      title: "Photography Composition Professional",
-      issuer: "Nikon School Online",
-      date: "March 2023",
-      description: "Completed professional training in advanced composition techniques and lighting scenarios",
-      skills: ["Composition", "Lighting", "Post-Processing"],
-      credentialId: "NK-COMP-456ABC",
-      credentialUrl: "https://example.com/verify/456ABC",
+      title: "Volunteer Appreciation Certificate",
+      issuer: "Partex (Jambavanta Foundation)",
+      date: "September 2024",
+      description: "Recognized for outstanding dedication as a volunteer in World Record-Setting Event commemorating Swami Vivekananda's 1893 Chicago speech",
+      skills: ["Volunteering", "Event Management", "Community Service"],
       image: "src/assets/SVN.jpg"
-    },
-    // Add 3-5 more certificates
+    }
   ];
 
   return (
@@ -89,7 +83,7 @@ const Certificate = () => {
       <div className="certificate-header">
         <h2>Certifications <span>by Pranav Mahale</span></h2>
         <div className="section-divider"></div>
-        <p>Validated skills and professional accreditations in creative fields</p>
+        <p>Validated skills and professional accreditations</p>
       </div>
 
       {/* Certificates Grid */}
@@ -101,6 +95,7 @@ const Certificate = () => {
                 <img 
                   src={cert.image} 
                   alt={cert.title}
+                  loading="lazy"
                   className="certificate-image"
                   onError={(e) => {
                     e.target.onerror = null; 
@@ -118,11 +113,6 @@ const Certificate = () => {
                   <span className="date">
                     <FaCalendarAlt className="meta-icon" /> Issued {cert.date}
                   </span>
-                  {cert.credentialId && (
-                    <span className="credential-id">
-                      <FaCertificate className="meta-icon" /> ID: {cert.credentialId}
-                    </span>
-                  )}
                 </div>
                 
                 <p className="certificate-description">{cert.description}</p>
@@ -132,17 +122,6 @@ const Certificate = () => {
                     <span key={skill} className="skill-tag">{skill}</span>
                   ))}
                 </div>
-                
-                {cert.credentialUrl && (
-                  <a 
-                    href={cert.credentialUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="verify-link"
-                  >
-                    <FaExternalLinkAlt /> Verify Credential
-                  </a>
-                )}
               </div>
             </div>
           ))}

@@ -165,3 +165,44 @@
       text-align: center;
     }
   }
+  /* QR Code Styles */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.qr-container:hover {
+  transform: translateY(-3px);
+}
+
+.qr-code {
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 5px;
+  background: white;
+}
+
+.qr-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #bbb;
+  font-size: 0.85rem;
+}
+
+.qr-icon {
+  color: #a855f7;
+  font-size: 0.9rem;
+}
+
+/* Add this to maintain spacing */
+.footer-section {
+  margin-bottom: 2rem;
+  min-width: 200px;
+}

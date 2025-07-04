@@ -1,7 +1,7 @@
 /* Base Styles */
 .projects-section {
     padding: 1rem 2rem 2rem calc(100px + 2.5rem);
-    background:rgb(0, 0, 0);
+    background:transparent;
     color: #fff;
     min-height: 100vh;
     display: flex;

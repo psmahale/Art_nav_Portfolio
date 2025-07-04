@@ -24,9 +24,9 @@ const Navbar = () => {
     { id: "home", icon: <FaHome />, name: "Home" },
     { id: "about", icon: <FaUserAlt />, name: "About" },
     { id: "projects", icon: <FaCode />, name: "Projects" },
+    { id: "certifications", icon: <FaAward />, name: "Certs" },
     { id: "sketches", icon: <FaPalette />, name: "Art" },
     { id: "editing", icon: <FaVideo />, name: "Editing" },
-    { id: "certifications", icon: <FaAward />, name: "Certs" },
     { id: "contact", icon: <FaEnvelope />, name: "Contact" }
   ];
 

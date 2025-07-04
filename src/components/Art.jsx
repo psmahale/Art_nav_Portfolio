@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaCameraRetro, FaPalette, FaPortrait } from "react-icons/fa";
 import "../styles/Art.css";
 
-// Import placeholder images (you should replace these with your actual images)
+// Import placeholder images
 import p2 from "../assets/Ana_de_Armas.jpeg";
 import p1 from "../assets/Anything.jpg";
 import p3 from "../assets/Baby.jpeg";
@@ -20,6 +20,12 @@ import p9 from "../assets/SRK.jpg";
 
 const Art = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
+  const [expandedCategories, setExpandedCategories] = useState({
+    portrait: true,
+    painting: true,
+    digital: true
+  });
 
   const artworks = [
     {
@@ -162,8 +168,8 @@ const Art = () => {
       commission: false,
       image: p12
     },
-    
-    
+
+    // ... (keep all your other artwork objects) ...
   ];
 
   const categories = [
@@ -173,20 +179,147 @@ const Art = () => {
     { id: "digital", name: "Digital Art", icon: <FaCameraRetro /> }
   ];
 
+   useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleCategory = (category) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [category]: !prev[category]
+    }));
+  };
+
   const filteredArtworks = activeCategory === "all"
     ? artworks
     : artworks.filter(artwork => artwork.category === activeCategory);
 
-  return (
+  // Group artworks by category for mobile view
+  const groupedArtworks = artworks.reduce((acc, artwork) => {
+    if (!acc[artwork.category]) acc[artwork.category] = [];
+    acc[artwork.category].push(artwork);
+    return acc;
+  }, {});
+
+
+  const ArtCard = ({ artwork }) => (
+    <div className="art-card">
+      <div className="art-image-container">
+        <img 
+          loading="lazy"
+          src={artwork.image} 
+          alt={artwork.title} 
+          className="art-image" 
+          onError={(e) => {
+            e.target.onerror = null; 
+            e.target.src = "https://via.placeholder.com/300x300?text=Artwork+Image";
+          }}
+        />
+        {artwork.commission && (
+          <div className="commission-badge">
+            Commission Work
+          </div>
+        )}
+      </div>
+      <div className="art-info">
+        <h3>{artwork.title}</h3>
+        <p className="art-description">{artwork.description}</p>
+        <div className="art-footer">
+          <span className="art-date">{artwork.date}</span>
+          <span className="art-price">{artwork.price}</span>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (isMobileView) {
+    return (
+      <section id="sketches" className="art-section">
+        <div className="art-container">
+          <div className="art-header">
+            <div className="header-content">
+              <h2>Art Gallery <span>by Pranav Mahale</span></h2>
+              <div className="section-divider"></div>
+              <p>Explore my diverse collection of artworks</p>
+            </div>
+          </div>
+
+          <div className="category-filters">
+            {categories.map(category => (
+              <button
+                key={category.id}
+                className={`filter-btn ${activeCategory === category.id ? "active" : ""}`}
+                onClick={() => setActiveCategory(category.id)}
+              >
+                {category.icon} {category.name}
+              </button>
+            ))}
+          </div>
+
+          <div className="mobile-art-view">
+            {/* Show selected category first if not "all" */}
+            {activeCategory !== "all" && (
+              <div className="mobile-category-section">
+                <div 
+                  className="mobile-category-header"
+                  onClick={() => toggleCategory(activeCategory)}
+                >
+                  <h3>{categories.find(c => c.id === activeCategory)?.name || activeCategory}</h3>
+                  <span className="toggle-icon">
+                    {expandedCategories[activeCategory] ? '−' : '+'}
+                  </span>
+                </div>
+                {expandedCategories[activeCategory] && (
+                  <div className="mobile-art-gallery">
+                    {groupedArtworks[activeCategory]?.map(artwork => (
+                      <ArtCard key={artwork.id} artwork={artwork} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Show remaining categories */}
+            {Object.entries(groupedArtworks)
+              .filter(([category]) => activeCategory === "all" || category !== activeCategory)
+              .map(([category, items]) => (
+                <div className="mobile-category-section" key={category}>
+                  <div 
+                    className="mobile-category-header"
+                    onClick={() => toggleCategory(category)}
+                  >
+                    <h3>{categories.find(c => c.id === category)?.name || category}</h3>
+                    <span className="toggle-icon">
+                      {expandedCategories[category] ? '−' : '+'}
+                    </span>
+                  </div>
+                  {expandedCategories[category] && (
+                    <div className="mobile-art-gallery">
+                      {items.map(artwork => (
+                        <ArtCard key={artwork.id} artwork={artwork} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+    return (
     <section id="sketches" className="art-section">
       <div className="art-container">
         <div className="art-header">
           <div className="header-content">
-            <h2>
-              Art Gallery <span>by Pranav Mahale</span>
-            </h2>
+            <h2>Art Gallery <span>by Pranav Mahale</span></h2>
             <div className="section-divider"></div>
-            <p>Explore my diverse collection of artworks, from digital illustrations to hand-painted masterpieces.</p>
+            <p>Explore my diverse collection of artworks</p>
           </div>
         </div>
 
@@ -204,33 +337,8 @@ const Art = () => {
 
         <div className="art-gallery">
           {filteredArtworks.length > 0 ? (
-            filteredArtworks.map((artwork) => (
-              <div className="art-card" key={artwork.id}>
-                <div className="art-image-container">
-                  <img 
-                    src={artwork.image} 
-                    alt={artwork.title} 
-                    className="art-image" 
-                    onError={(e) => {
-                      e.target.onerror = null; 
-                      e.target.src = "https://via.placeholder.com/300x300?text=Artwork+Image";
-                    }}
-                  />
-                  {artwork.commission && (
-                    <div className="commission-badge">
-                      Commission Work
-                    </div>
-                  )}
-                </div>
-                <div className="art-info">
-                  <h3>{artwork.title}</h3>
-                  <p className="art-description">{artwork.description}</p>
-                  <div className="art-footer">
-                    <span className="art-date">{artwork.date}</span>
-                    <span className="art-price">{artwork.price}</span>
-                  </div>
-                </div>
-              </div>
+            filteredArtworks.map(artwork => (
+              <ArtCard key={artwork.id} artwork={artwork} />
             ))
           ) : (
             <div className="no-artworks">

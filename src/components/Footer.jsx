@@ -1,6 +1,6 @@
-import React from 'react';
-import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaPhone, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaPhone, FaQrcode, FaTwitter } from 'react-icons/fa';
 import { FiArrowUp } from 'react-icons/fi';
+import qrCode from '../assets/qr.png'; // Import the QR code image
 import '../styles/Footer.css';
 
 const Footer = () => {
@@ -9,6 +9,10 @@ const Footer = () => {
       top: 0,
       behavior: 'smooth'
     });
+  };
+
+  const handleQrClick = () => {
+    window.open("https://drive.google.com/drive/u/1/folders/108SOhQ7HNwb5HTHImXLKDmO2dB23-SII", "_blank");
   };
 
   return (
@@ -67,6 +71,22 @@ const Footer = () => {
                 <span>+91 8767557467</span>
               </li>
             </ul>
+          </div>
+
+          {/* Certificate Validation */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Validate Certificates</h3>
+            <div className="qr-container" onClick={handleQrClick}>
+              <img 
+                src={qrCode} 
+                alt="Certificate Validation QR Code" 
+                className="qr-code"
+              />
+              <div className="qr-hint">
+                <FaQrcode className="qr-icon" />
+                <span>Scan or click to verify</span>
+              </div>
+            </div>
           </div>
         </div>
 
