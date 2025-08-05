@@ -5,6 +5,7 @@ import thumbnail3 from '../assets/p3.jpg';
 import thumbnail4 from '../assets/p4.jpg';
 import thumbnail5 from '../assets/p5.jpg';
 import thumbnail6 from '../assets/p6.jpg';
+import thumbnail7 from '../assets/p7.jpg';
 import "../styles/Projects.css";
 
 const Projects = () => {
@@ -18,6 +19,16 @@ const Projects = () => {
       thumbnail: thumbnail1,
       category: "AI/ML",
       icon: <FaChartLine />
+    },
+    {
+      title: "NoxVision - The Concept",
+      description: "A Smart CCTV Surveillance System Protocol.",
+      technologies: ["Html", "OOP", "CSS"],
+      github: "https://github.com/psmahale",
+      demo: "https://noxvisionbyartnav.netlify.app/",
+      thumbnail: thumbnail7, // Use the correct thumbnail key
+      category: "Desktop App",
+      icon: <FaCode />
     },
     {
       title: "Medical Management System",
@@ -34,7 +45,7 @@ const Projects = () => {
       description: "A design of Public-facing portal for government scheme applications. This project includes a user-friendly interface for citizens to apply for various government schemes.",
       technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "PHP"],
       github: "https://github.com/psmahale",
-      demo: "#",
+      demo: "https://govschemesbyartnav.netlify.app/",
       thumbnail: thumbnail3, // Use the correct thumbnail key
       category: "Web Development",
       icon: <FaCode />
@@ -64,7 +75,7 @@ const Projects = () => {
       description: "Modern responsive portfolio built with React showcasing my academic journey, skills, and projects. Features dynamic content rendering and smooth animations.",
       technologies: ["React", "CSS Modules", "Framer Motion", "EmailJS","ChatGpt","DeepSeek"],
       github: "https://github.com/psmahale",
-      demo: "#",
+      demo: "https://artnav.netlify.app/",
       thumbnail: thumbnail6,
       category: "Frontend Development",
       icon: <FaCode />
