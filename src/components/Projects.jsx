@@ -15,7 +15,6 @@ const Projects = () => {
       description: "Deep learning model using Inception v3 architecture that classifies plant diseases with 92% accuracy. Implemented image preprocessing pipelines and deployed as Flask web app.",
       technologies: ["Python", "TensorFlow", "Keras", "OpenCV", "Flask"],
       github: "https://github.com/psmahale",
-      demo: "#",
       thumbnail: thumbnail1,
       category: "AI/ML",
       icon: <FaChartLine />
