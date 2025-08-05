@@ -34,7 +34,6 @@ const Projects = () => {
       description: "Full-stack medical records system with React frontend and MySQL backend. Using PHP for server-side logic, it allows medicle mangaer to manage patient records, Medicines and Billings.",
       technologies: ["React", "MySQL", "Java", "PHP", "Tailwind"],
       github: "https://github.com/psmahale",
-      demo: "#",
       thumbnail: thumbnail2,
       category: "Full Stack",
       icon: <FaServer />
@@ -54,7 +53,6 @@ const Projects = () => {
       description: "Interactive BI dashboard with real-time data processing and custom visualizations built with Tableau.",
       technologies: ["Tableau", "Kaggle"],
       github: "https://github.com/psmahale",
-      demo: "#",
       thumbnail: thumbnail4, // Use the correct thumbnail key
       category: "Data Analytics",
       icon: <FaDatabase />
@@ -64,7 +62,6 @@ const Projects = () => {
       description: "C++ application for generating tax invoices based on car models and rental days, reducing manual work by 70% for local businesses.",
       technologies: ["C++", "OOP", "File Handling"],
       github: "https://github.com/psmahale",
-      demo: "#",
       thumbnail: thumbnail5, // Use the correct thumbnail key
       category: "Desktop App",
       icon: <FaCode />
