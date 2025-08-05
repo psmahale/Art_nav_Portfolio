@@ -21,7 +21,7 @@ const Projects = () => {
     },
     {
       title: "NoxVision - The Concept",
-      description: "A Smart CCTV Surveillance System Protocol.",
+      description: "A Smart CCTV Surveillance System Protocol. NoxVision is an AI-powered surveillance system that provides real-time threat detection, alert management, and comprehensive reporting for security operations.",
       technologies: ["Html", "OOP", "CSS"],
       github: "https://github.com/psmahale",
       demo: "https://noxvisionbyartnav.netlify.app/",
