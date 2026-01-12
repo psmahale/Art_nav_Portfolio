@@ -25,9 +25,7 @@ const About = () => {
       content: (
         <div className="profile-content">
           <p className="section-text">
-            AI/ML-focused Computer Engineering student with expertise in Python, Computer Vision,
-            and modern development tools. currently enhancing CCTV security features at StomatoBot Technologies. Developing real-time threat detection models using Computer Vision and edge AI. Passionate about building scalable security solutions 
-        with Python, OpenCV, and deep learning frameworks.
+            A passionate and self-driven Computer Engineering student with a deep interest in AI/ML, software development, and tech-driven problem solving. Over the past few years, I’ve built end-to-end projects across AI/ML, full-stack web development, and computer vision, using technologies like Python, TensorFlow, Flask, React.js, OpenCV, and FastAPI. I’ve deployed several of these as real-world applications — ranging from plant disease detection models to smart CCTV surveillance prototypes. Outside of code, I love visual storytelling through video editing and design, which fuels my creativity and helps bring a unique edge to my projects.
           </p>
           <div className="highlights">
             <div className="highlight-item">
