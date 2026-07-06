@@ -5,7 +5,7 @@ const Home = () => {
   const handleDownloadCV = () => {
     // Create a temporary link element
     const link = document.createElement('a');
-    link.href = '/PranavMahale_update_on_29_08_25.pdf';
+    link.href = '/pranavmahale04@gmail.com_8767557467.pdf';
     link.download = 'Pranav_Mahale_CV.pdf'; // The filename for download
     document.body.appendChild(link);
     link.click();
