@@ -6,6 +6,7 @@ import thumbnail4 from '../assets/p4.jpg';
 import thumbnail5 from '../assets/p5.jpg';
 import thumbnail6 from '../assets/p6.jpg';
 import thumbnail7 from '../assets/p7.jpg';
+import thumbnail9 from '../assets/p9.jpg';
 import "../styles/Projects.css";
 
 const Projects = () => {
