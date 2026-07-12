@@ -11,6 +11,16 @@ import "../styles/Projects.css";
 const Projects = () => {
   const projects = [
     {
+      title: "GrowEasy Find your Leads",
+      description: "An AI-powered CSV importer that intelligently extracts CRM lead data from any CSV format — Facebook exports, Google Ads, Excel sheets, real estate CRMs, sales reports — and maps them into GrowEasy CRM fields using an LLM.",
+      technologies: ["React.js","Node.js","LLM Intigratio"],
+      github: "https://github.com/psmahale/GrowEasy",
+      demo: "https://grow-easy-eta-olive.vercel.app/manage-leads",
+      thumbnail: thumbnail9, // Use the correct thumbnail key
+      category: "Web Development",
+      icon: <FaCode />
+    },
+    {
       title: "Plant Disease Prediction System",
       description: "Deep learning model using Inception v3 architecture that classifies plant diseases with 92% accuracy. Implemented image preprocessing pipelines and deployed as Flask web app.",
       technologies: ["Python", "TensorFlow", "Keras", "OpenCV", "Flask"],
