@@ -1,11 +1,12 @@
 import profileImage from '../assets/DP2.jpg';
 import '../styles/Home.css';
+import resumeFile from '../assets/pranavmahale04@gmail.com_8767557467.pdf'; // Import here
 
 const Home = () => {
   const handleDownloadCV = () => {
     // Create a temporary link element
     const link = document.createElement('a');
-    link.href = '/documents/pranavmahale04@gmail.com_8767557467.pdf';
+    link.href = resumeFile;
     link.download = 'pranavmahale04@gmail.com_8767557467.pdf'; // The filename for download
     document.body.appendChild(link);
     link.click();
