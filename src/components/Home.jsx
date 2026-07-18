@@ -2,12 +2,11 @@ import profileImage from '../assets/DP2.jpg';
 import '../styles/Home.css';
 //import resumeFile from '../assets/pranavmahale04@gmail.com_8767557467.pdf'; // Import here
 
-const Home = () => {
-  const handleDownloadCV = () => {
+const handleDownloadCV = () => {
   const link = document.createElement('a');
-  // Uses the correct base URL depending on environment
-  link.href = `${import.meta.env.BASE_URL}documents/pranavmahale04@gmail.com_8767557467.pdf`; 
-  link.download = 'pranavmahale04@gmail.com_8767557467.pdf';
+  // Placed directly in public means it lives at the root URL of your domain
+  link.href = '/resume.pdf'; 
+  link.download = '/pranavmahale04@gmail.com_8767557467.pdf'; 
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
