@@ -16,7 +16,7 @@ const Projects = () => {
       description: "An AI-powered CSV importer that intelligently extracts CRM lead data from any CSV format — Facebook exports, Google Ads, Excel sheets, real estate CRMs, sales reports — and maps them into GrowEasy CRM fields using an LLM.",
       technologies: ["React.js","Node.js","Grok LLM Intigration"],
       github: "https://github.com/psmahale/GrowEasy",
-      demo: "https://grow-easy-eta-olive.vercel.app/manage-leads",
+      demo: "https://groweasybypsm.netlify.app/manage-leads",
       thumbnail: thumbnail9, // Use the correct thumbnail key
       category: "Web Development",
       icon: <FaCode />
