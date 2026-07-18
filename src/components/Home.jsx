@@ -6,7 +6,7 @@ const Home = () => {
     // Create a temporary link element
     const link = document.createElement('a');
     link.href = '/documents/pranavmahale04@gmail.com_8767557467.pdf';
-    link.download = 'Pranav_Mahale_CV.pdf'; // The filename for download
+    link.download = 'pranavmahale04@gmail.com_8767557467.pdf'; // The filename for download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
