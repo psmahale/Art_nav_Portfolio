@@ -2,15 +2,16 @@ import profileImage from '../assets/DP2.jpg';
 import '../styles/Home.css';
 //import resumeFile from '../assets/pranavmahale04@gmail.com_8767557467.pdf'; // Import here
 
-const handleDownloadCV = () => {
-  const link = document.createElement('a');
-  // Placed directly in public means it lives at the root URL of your domain
-  link.href = '/resume.pdf'; 
-  link.download = '/pranavmahale04@gmail.com_8767557467.pdf'; 
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+const Home = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    // Points directly to public/resume.pdf at the root
+    link.href = '/resume.pdf'; 
+    link.download = 'pranavmahale04@gmail.com_8767557467.pdf'; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section id="home" className="home-section">
